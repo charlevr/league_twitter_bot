@@ -17,10 +17,10 @@ def get_api(config):
 def post(tweet):
 # Fill in the values noted in previous step here
     config = { 
-    "consumer_key"        : "2Rfj1Ryae4CRMXUmkKDDEFYIm",
-    "consumer_secret"     : "a6GpsaqVzEOkJ0CENQADKGpbVMtckhsG3stF9MNfIjcayg0Dkf",
-    "access_token"        : "880261980162056194-sFdY2FjUfzz2akOPAWF75xYPjFXLMh8",
-    "access_token_secret" : "R5iKxQMMevVUJYF3Rf05iALOHfYBkE4l529XyP2px353A" 
+    "consumer_key"        : "x,
+    "consumer_secret"     : "x",
+    "access_token"        : "x",
+    "access_token_secret" : "x" 
     }
 
     api = get_api(config)
