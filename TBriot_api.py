@@ -3,6 +3,7 @@ import urllib.parse
 import urllib.request
 import sys
 import TBpost_tweet
+import time
 
 
 riot_apikey = 'RGAPI-3299e09a-995a-46c5-84bf-ed414e5ca73e'
@@ -42,9 +43,6 @@ def get_match(matchlist_json):
     match_url = specific_match_url + str(first_match['gameId']) + '?' + urllib.parse.urlencode([('api_key', riot_apikey)])
     return get_json(match_url)
 
-print(get_match(get_json(base_url_john)))
-print(get_json(base_url_john))
-
 def get_win_lose(matchlist_json):
     first_match = matchlist_json['matches'][0]
     first_match_championid = first_match['champion']
@@ -80,24 +78,35 @@ def post_tweet(name: str, win_or_loss: str, deaths):
     else:
         TBpost_tweet.post('Lmao '+ name+ ' lost. He died ' + str(deaths) + ' times. Trash.')
         
-def game_recent(matchlist_json):
-    pass
+def game_is_recent(matchlist_json):
+    game = matchlist_json['matches'][0]
+    timeOfGame = game['timestamp']
+    
+    currtime = int(time.time()) * 1000
+    tenMintoMills = 600000
+    
+    if (currtime - timeOfGame) <= tenMintoMills:
+        return True
+    return False
         
 def execute():
     john_matchlist_json = get_json(base_url_john)
-    john_winOrLose = get_win_lose(john_matchlist_json)
-    john_deaths = getDeaths(john_matchlist_json)
-    post_tweet('John', john_winOrLose, john_deaths)
+    if game_is_recent(john_matchlist_json):
+        john_winOrLose = get_win_lose(john_matchlist_json)
+        john_deaths = getDeaths(john_matchlist_json)
+        post_tweet('John', john_winOrLose, john_deaths)
      
     john2_matchlist_json = get_json(base_url_john2)
-    john2_winOrLose = get_win_lose(john2_matchlist_json)
-    john2_deaths = getDeaths(john2_matchlist_json)
-    post_tweet('John', john2_winOrLose, john2_deaths)
+    if game_is_recent(john2_matchlist_json):
+        john2_winOrLose = get_win_lose(john2_matchlist_json)
+        john2_deaths = getDeaths(john2_matchlist_json)
+        post_tweet('John', john2_winOrLose, john2_deaths)
     
     chiang_matchlist_json = get_json(base_url_chiang)
-    chiang_winOrLose = get_win_lose(chiang_matchlist_json)
-    chiang_deaths = getDeaths(chiang_matchlist_json)
-    post_tweet('Chiang', chiang_winOrLose, chiang_deaths)
+    if game_is_recent(chiang_matchlist_json):
+        chiang_winOrLose = get_win_lose(chiang_matchlist_json)
+        chiang_deaths = getDeaths(chiang_matchlist_json)
+        post_tweet('Chiang', chiang_winOrLose, chiang_deaths)
     
 
     

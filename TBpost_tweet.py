@@ -5,6 +5,10 @@ Created on Jun 28, 2017
 '''
 import tweepy
 
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 def get_api(config):
     auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])
     auth.set_access_token(config['access_token'], config['access_token_secret'])
@@ -22,6 +26,8 @@ def post(tweet):
     api = get_api(config)
     status = api.update_status(status=tweet) 
     # Yes, tweet is called 'status' rather confusing
+    
+
 
 # if __name__ == "__main__":
 #     post()
