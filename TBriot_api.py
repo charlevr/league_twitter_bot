@@ -6,7 +6,7 @@ import TBpost_tweet
 import time
 
 
-riot_apikey = 'RGAPI-3299e09a-995a-46c5-84bf-ed414e5ca73e'
+riot_apikey = 'x'
 
 base_match_url_john = 'https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/229679480/recent'
 base_url_john = base_match_url_john + '?' + urllib.parse.urlencode([('api_key', riot_apikey)])
