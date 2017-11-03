@@ -74,9 +74,9 @@ def getDeaths(matchlist_json):
 
 def post_tweet(name: str, win_or_loss: str, deaths):
     if win_or_loss == "Win":
-        TBpost_tweet.post('Holy shit ' + name + ' actually won a game. However, he died ' + str(deaths) + ' times.')
+        TBpost_tweet.post(name + ' actually won a game. However, he died ' + str(deaths) + ' times.')
     else:
-        TBpost_tweet.post('Lmao '+ name+ ' lost. He died ' + str(deaths) + ' times. Trash.')
+        TBpost_tweet.post('Lmao '+ name+ ' lost. He died ' + str(deaths) + ' times. Feels bad.')
         
 def game_is_recent(matchlist_json):
     game = matchlist_json['matches'][0]
