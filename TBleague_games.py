@@ -11,6 +11,8 @@ if __name__ == '__main__':
     counter = 0
     print('Program starting...')
     print()
+    #checks for new games every 5 minutes and tells the user how many times it has been executed and the last execution for 
+    #debugging purposes. 
     while True:
         time.sleep(300)
         TBriot_api.execute()
