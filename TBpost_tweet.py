@@ -1,7 +1,8 @@
-'''
-Created on Jun 28, 2017
 
-@author: chadd
+'''
+TAKEN FROM NIKHIL'S BLOG: http://nodotcom.org/python-twitter-tutorial.html
+A very helpful and simple tutorial on how to post using tweepy. 
+Check out his blog and other such things here: http://nodotcom.org/nikhil-gupta.html
 '''
 import tweepy
 
@@ -15,9 +16,8 @@ def get_api(config):
     return tweepy.API(auth)
 
 def post(tweet):
-# Fill in the values noted in previous step here
     config = { 
-    "consumer_key"        : "x,
+    "consumer_key"        : "x",
     "consumer_secret"     : "x",
     "access_token"        : "x",
     "access_token_secret" : "x" 
@@ -25,11 +25,9 @@ def post(tweet):
 
     api = get_api(config)
     status = api.update_status(status=tweet) 
-    # Yes, tweet is called 'status' rather confusing
+
     
 
 
-# if __name__ == "__main__":
-#     post()
 
 
