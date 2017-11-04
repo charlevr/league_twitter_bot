@@ -1,1 +1,1 @@
-# league_twitter_bot
+# League of Legends Twitter Bot (in progress but functional)
