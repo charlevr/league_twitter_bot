@@ -1,1 +1,2 @@
 # League of Legends Twitter Bot (in progress but functional)
+Posts whether or not one of my friends won or lost in a jokingly mean manner. Uses both the riot and the twitter api for this function. It is still in progress because I have not figured out when to update the program as riot's API seems to update irregularly. All work was done by me except for the posting program, made by a man named Nikhil as shown in that part of the program. 
